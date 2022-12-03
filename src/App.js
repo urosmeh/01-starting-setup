@@ -1,4 +1,5 @@
-import { ExpenseItem } from "./components/ExpenseItem";
+import { Expenses } from "./components/expenses/Expenses";
+import { NewExpense } from "./components/expenses/NewExpense";
 
 function App() {
   const expenses = [
@@ -6,26 +7,31 @@ function App() {
       id: 1,
       title: "insurance",
       date: new Date(),
-      price: 100,
+      amount: 100,
     },
     {
       id: 2,
       title: "groceries",
       date: new Date(),
-      price: 200,
+      amount: 200,
     },
     {
       id: 3,
       title: "phone bill",
       date: new Date(),
-      price: 50,
+      amount: 50,
     }
   ]
+
+  // const [expenses, setExpenses] = useState(initExpenses);
+
   return (
     <div>
-      {expenses.map(ex => <ExpenseItem title={ex.title} date={ex.date} key={ex.id} />)}
+      <h2>Expenses</h2>
+      <Expenses items={expenses} />
+      <NewExpense />
     </div>
-  );
+  )
 }
 
 export default App;
