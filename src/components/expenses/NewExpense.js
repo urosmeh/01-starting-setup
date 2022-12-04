@@ -1,10 +1,15 @@
 import './NewExpense.css';
 import { ExpenseForm } from './ExpenseForm'
 
-export const NewExpense = () => {
+export const NewExpense = ({ onAddExpense }) => {
+    const onSubmitExpenseHandler = (data) => {
+        const expenseData = { ...data, id: Math.random().toString() };
+        onAddExpense(expenseData);
+    }
+
     return (
         <div className='new-expense'>
-            <ExpenseForm />
+            <ExpenseForm onSubmitExpenseData={onSubmitExpenseHandler} />
         </div>
     );
 }
